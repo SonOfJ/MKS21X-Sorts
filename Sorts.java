@@ -22,9 +22,9 @@ public class Sorts{
           int element = data[j]; //Store element
           data[j] = data[j + 1]; //Element becomes the one after it
           data[j + 1] = element; //The one after it becomes the element
-          ginga = ginga - 1; //We know for the fact that the largest element is at the end now so we don't check the last one
         }
       }
+      ginga = ginga - 1; //We know for the fact that the largest element is at the end now so we don't check the last one
     }
   }
   public static String print(int[] data) { //Extra function for visual check
