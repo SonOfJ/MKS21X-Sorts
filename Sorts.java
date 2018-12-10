@@ -48,15 +48,15 @@ public class Sorts{
     int[] ha = new int[Integer.parseInt(args[0])]; //Creates a new integer array with the same size as specified by the first argument
     fillArray(ha);
     //System.out.println("Initial: " + print(ha)); //Initial stage of array
-    double start = System.nanoTime();
+    double start = System.currentTimeMillis();
     if (args[1].equals("selection")) { //If the second argument is "selection," use the selection sort
       selectionSort(ha); //Perform the selection sort on the integer array
     }
     if (args[1].equals("bubble")) { //If the second argument is "bubble," use the bubble sort
       bubbleSort(ha); //Perform the bubble sort on the integer array
     }
-    double end = System.nanoTime();
+    double end = System.currentTimeMillis();
     //System.out.println("Final: " + print(ha)); //Sorted stage of array
-    System.out.println("Total time: " + (start - end) + " nanosecond(s)");
+    System.out.println("Total time: " + (end - start) + " millisecond(s)");
   }
 }
