@@ -1,3 +1,4 @@
+import java.util.Random;
 public class Sorts{
   public static void selectionSort(int[] ary) {
     for(int i = 0; i < ary.length - 1; i = i + 1) { //General loop
@@ -36,6 +37,12 @@ public class Sorts{
       }
     }
     return kai;
+  }
+  public static void fillArray(int[] data) { //Extra function to fill up the array with random numbers from -99 to 99
+    Random randgen = new Random();
+    for(int i = 0; i < data.length; i = i + 1) {
+      data[i] = randgen.nextInt() % 100;
+    }
   }
   public static void main(String[] args) {
     int[] ha = new int[Integer.parseInt(args[0])]; //Creates a new integer array with the same size as specified by the first argument
