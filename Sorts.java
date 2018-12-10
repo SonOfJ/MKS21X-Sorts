@@ -26,15 +26,26 @@ public class Sorts{
       }
     }
   }
+  public static String print(int[] data) { //Extra function for visual check
+    String kai = "[";
+    for(int i = 0; i < data.length; i = i + 1) {
+      if (i != data.length - 1) {
+        kai = kai + data[i] + ", ";
+      } else {
+        kai = kai + data[i] + "]";
+      }
+    }
+    return kai;
+  }
   public static void main(String[] args) {
     int[] ha = new int[Integer.parseInt(args[0])]; //Creates a new integer array with the same size as specified by the first argument
-    System.out.println("Initial: ");
+    System.out.println("Initial: " + print(ha)); //Initial stage of array
     if (args[1] == "selection") { //If the second argument is "selection," use the selection sort
       selectionSort(ha); //Perform the selection sort on the integer array
     }
     if (args[1] == "bubble") { //If the second argument is "bubble," use the bubble sort
       bubbleSort(ha); //Perform the bubble sort on the integer array
     }
-    System.out.println("Final: ");
+    System.out.println("Final: " + print(ha)); //Sorted stage of array
   }
 }
