@@ -28,8 +28,13 @@ public class Sorts{
   }
   public static void main(String[] args) {
     int[] ha = new int[Integer.parseInt(args[0])]; //Creates a new integer array with the same size as specified by the first argument
+    System.out.println("Initial: ");
     if (args[1] == "selection") { //If the second argument is "selection," use the selection sort
       selectionSort(ha); //Perform the selection sort on the integer array
     }
+    if (args[1] == "bubble") { //If the second argument is "bubble," use the bubble sort
+      bubbleSort(ha); //Perform the bubble sort on the integer array
+    }
+    System.out.println("Final: ");
   }
 }
