@@ -33,9 +33,11 @@ public class Sorts{
   }
   public static void insertionSort(int[] data) {
     if (data.length != 0) {
-      int sortedIndex = 0
-      for(int i = 1; i < data.length; i = i + 1) { //First loop starts at i = 1 because the first element is already "sorted"
-        for(int j = 1)
+      for(int i = 1; i < data.length; i = i + 1) { //The first element is already sorted
+        int index = i - 1;
+        while (index != -1 && data[i] < data[index]) {
+          index = index - 1;
+        }
       }
     }
   }
