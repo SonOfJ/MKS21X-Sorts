@@ -62,7 +62,9 @@ public class Sorts{
   }
   public static void main(String[] args) {
     int[] ha = new int[Integer.parseInt(args[0])]; //Creates a new integer array with the same size as specified by the first argument
-    fillArray(ha);
+    if (!args[2].equals("empty")) {
+      fillArray(ha);
+    }
     //System.out.println("Initial: " + print(ha)); //Initial stage of array
     double start = System.nanoTime();
     if (args[1].equals("selection")) { //If the second argument is "selection," use the selection sort
