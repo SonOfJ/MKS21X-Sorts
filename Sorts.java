@@ -34,10 +34,12 @@ public class Sorts{
   public static void insertionSort(int[] data) {
     if (data.length != 0) {
       for(int i = 1; i < data.length; i = i + 1) { //The first element is already sorted
-        int index = i - 1;
-        while (index != -1 && data[i] < data[index]) {
-          index = index - 1;
+        int index = i; //Allows for the manipulation of the index without affecting i
+        while (index != 0 && data[index - 1] < data[index]) { //index cannot be zero and the element to the left is smaller than the current element
+          data[index] = data[index - 1]; //Shifting
+          index = index - 1; //Continue the loop towards the left
         }
+        data[index] = data[i]; //Place the element at i at the location of the index
       }
     }
   }
@@ -68,6 +70,9 @@ public class Sorts{
     }
     if (args[1].equals("bubble")) { //If the second argument is "bubble," use the bubble sort
       bubbleSort(ha); //Perform the bubble sort on the integer array
+    }
+    if (args[1].equals("insertion")) { //If the second argument is "insertion," use the selection sort
+      insertionSort(ha);
     }
     double end = System.nanoTime();
     //System.out.println("Final: " + print(ha)); //Sorted stage of array
