@@ -17,17 +17,16 @@ public class Sorts{
     }
   }
   public static void bubbleSort(int[] data) {
-    if (data.length != 0) {
-      int ginga = data.length; //This will change every time the sort is completed
-      for(int i = 0; i < data.length - 1; i = i + 1) { //First loop that runs exactly one less times than the length
-        for(int j = 0; j < ginga - 1; j = j + 1) { //The second loop is the one that checks and swaps
-          if (data[j] > data[j + 1]) { //If the element is bigger than the one after it
-            int element = data[j]; //Store element
-            data[j] = data[j + 1]; //Element becomes the one after it
-            data[j + 1] = element; //The one after it becomes the element
-          }
+    boolean check = false; //Check asks if the right value is larger than the left value
+    while (check == false) { //If false, continue running
+      check = true; //Assume that the check is true
+      for(int i = 0; i < data.length - 1; i = i + 1) {
+        if(data[i] > data[i + 1]) { //The left value is actually larger than the right value
+          check = false; //Change check accordingly
+          int old = data[i]; //Refers to the old left value
+          data[i] = data[i + 1]; //Replaces the left value with the right value
+          data[i + 1] = old; //Replaces the right value with the old left value
         }
-        ginga = ginga - 1; //We know for the fact that the largest element is at the end now so we don't check the last one
       }
     }
   }
@@ -62,7 +61,7 @@ public class Sorts{
   }
   public static void main(String[] args) {
     int[] ha = new int[Integer.parseInt(args[0])]; //Creates a new integer array with the same size as specified by the first argument
-    if (!args[2].equals("empty")) {
+    if (args.length == 2) {
       fillArray(ha);
     }
     //System.out.println("Initial: " + print(ha)); //Initial stage of array
