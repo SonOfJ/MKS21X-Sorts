@@ -33,12 +33,13 @@ public class Sorts{
   public static void insertionSort(int[] data) {
     if (data.length != 0) {
       for(int i = 1; i < data.length; i = i + 1) { //The first element is already sorted
+        int value = data[i];
         int index = i; //Allows for the manipulation of the index without affecting i
-        while (index != 0 && data[index - 1] < data[index]) { //index cannot be zero and the element to the left is smaller than the current element
+        while (index != 0 && data[index - 1] > value) { //index cannot be zero and the current element is smaller
           data[index] = data[index - 1]; //Shifting
           index = index - 1; //Continue the loop towards the left
         }
-        data[index] = data[i]; //Place the element at i at the location of the index
+        data[index] = value; //Place the element at i at the location of the index
       }
     }
   }
@@ -64,7 +65,7 @@ public class Sorts{
     if (args.length == 2) {
       fillArray(ha);
     }
-    //System.out.println("Initial: " + print(ha)); //Initial stage of array
+    System.out.println("Initial: " + print(ha)); //Initial stage of array
     double start = System.nanoTime();
     if (args[1].equals("selection")) { //If the second argument is "selection," use the selection sort
       selectionSort(ha); //Perform the selection sort on the integer array
@@ -76,7 +77,7 @@ public class Sorts{
       insertionSort(ha);
     }
     double end = System.nanoTime();
-    //System.out.println("Final: " + print(ha)); //Sorted stage of array
+    System.out.println("Final: " + print(ha)); //Sorted stage of array
     System.out.println("Total time: " + (end - start) + " nanosecond(s)");
   }
 }
